@@ -1,0 +1,120 @@
+$timing: .15s !default;
+$base-bg: #ffffff !default;
+$base-font-color: #1d1d1d !default;
+$base-font-family: 'Quicksand', sans-serif !default;
+$base-font-size: 14px !default;
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $base-bg;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  margin: 0;
+}
+
+.demo {
+  margin: 100px auto;
+}
+
+.day {
+  align-items: center;
+  display: flex;
+  flex: 1 0 14.28%;
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+  width: 14.28%;
+}
+
+.calendar {
+  background-color: #fcf9fc;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(#6b686c, .5);
+  max-width: 434px;
+  opacity: 0;
+  overflow: hidden;
+  text-align: center;
+  transition: opacity $timing ease-in-out;
+  width: 100%;
+
+  &.loaded {
+    opacity: 1;
+  }
+
+  &-header {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f3;
+    color: #b5b5b5;
+
+    .prev,
+    .next {
+      font-size: 28px;
+      line-height: 54px;
+      transition: color $timing ease-in-out;
+      width: 15%;
+
+      &:hover {
+        color: #f60;
+        cursor: pointer;
+      }
+    }
+
+    .date {
+      font-size: 20px;
+      flex: 1 0 auto;
+      line-height: 54px;
+    }
+
+    .day {
+      font-size: 11px;
+      line-height: 22px;
+    }
+  }
+
+  &-controls,
+  &-days,
+  &-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-body {
+    color: #6b686c;
+
+    .day {
+      color: #9e9c9f;
+      font-size: 14px;
+      height: 40px;
+      transition: color $timing ease-in-out;
+
+      &:hover {
+        color: #f60;
+        cursor: pointer;
+      }
+
+      .month {
+        color: #c5c5c5;
+        font-size: 9px;
+        left: 0;
+        line-height: 11px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-transform: uppercase;
+      }
+
+      &.active-month {
+        background-color: #fff;
+        color: #6b686c;
+
+        &:hover {
+          color: #f60;
+        }
+      }
+    }
+  }
+}
